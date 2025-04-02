@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "age": 28,
+    "bio": "Loves hiking, coffee, and great conversations.",
+    "images": [
+      "/images/alice1.jpg",
+      "/images/alice2.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "age": 30,
+    "bio": "Foodie, traveler, and aspiring photographer.",
+    "images": [
+      "/images/bob1.jpg",
+      "/images/bob2.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Charlie",
+    "age": 25,
+    "bio": "Music lover, guitarist, and craft beer enthusiast.",
+    "images": [
+      "/images/charlie1.jpg",
+      "/images/charlie2.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Diana",
+    "age": 27,
+    "bio": "Yoga instructor, bookworm, and amateur chef.",
+    "images": [
+      "/images/diana1.jpg",
+      "/images/diana2.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Ethan",
+    "age": 29,
+    "bio": "Tech enthusiast, runner, and coffee addict.",
+    "images": [
+      "/images/ethan1.jpg",
+      "/images/ethan2.jpg"
+    ]
+  }
+]
