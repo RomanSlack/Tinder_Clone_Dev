@@ -24,43 +24,58 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   // Load profiles data - using hardcoded profiles instead of fetch
   useEffect(() => {
-    // Using hardcoded profiles to avoid 404 issues with fetch
+    // Using hardcoded profiles with randomuser.me image URLs
     const profilesData = [
       {
-        id: 1,
-        name: "Alice",
-        age: 28,
-        bio: "Loves hiking, coffee, and great conversations.",
-        images: ["/images/alice1.jpg", "/images/alice2.jpg"]
-      },
-      {
-        id: 2,
-        name: "Bob",
-        age: 30,
-        bio: "Foodie, traveler, and aspiring photographer.",
-        images: ["/images/bob1.jpg", "/images/bob2.jpg"]
-      },
-      {
-        id: 3,
-        name: "Charlie",
-        age: 25,
-        bio: "Music lover, guitarist, and craft beer enthusiast.",
-        images: ["/images/charlie1.jpg", "/images/charlie2.jpg"]
-      },
-      {
-        id: 4,
-        name: "Diana",
-        age: 27,
-        bio: "Yoga instructor, bookworm, and amateur chef.",
-        images: ["/images/diana1.jpg", "/images/diana2.jpg"]
-      },
-      {
-        id: 5,
-        name: "Ethan",
-        age: 29,
-        bio: "Tech enthusiast, runner, and coffee addict.",
-        images: ["/images/ethan1.jpg", "/images/ethan2.jpg"]
-      }
+    "id": 1,
+    "name": "Alice",
+    "age": 28,
+    "bio": "Loves hiking, coffee, and great conversations.",
+    "images": [
+      "https://randomuser.me/api/portraits/women/45.jpg",
+      "https://i.imgur.com/uJNdnpf.jpeg"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Bob",
+    "age": 30,
+    "bio": "Foodie, traveler, and aspiring photographer.",
+    "images": [
+      "https://randomuser.me/api/portraits/men/32.jpg",
+      "https://i.imgur.com/n5VLc7Y.jpeg"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Charlie",
+    "age": 25,
+    "bio": "Music lover, guitarist, and craft beer enthusiast.",
+    "images": [
+      "https://randomuser.me/api/portraits/men/67.jpg",
+      "https://i.imgur.com/MpEtxD2.jpeg"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Diana",
+    "age": 27,
+    "bio": "Yoga instructor, bookworm, and amateur chef.",
+    "images": [
+      "https://randomuser.me/api/portraits/women/56.jpg",
+      "https://i.imgur.com/znZd0uK.png"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Ethan",
+    "age": 29,
+    "bio": "Tech enthusiast, runner, and coffee addict.",
+    "images": [
+      "https://randomuser.me/api/portraits/men/91.jpg",
+      "https://i.imgur.com/sv68oHX.jpeg"
+    ]
+  }
     ];
     
     setProfiles(profilesData);
@@ -72,6 +87,16 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       if (typeof window === 'undefined') return;
       
       try {
+        // Clear localStorage to ensure we're using the new profile images
+        localStorage.removeItem('likedProfiles');
+        localStorage.removeItem('conversations');
+        
+        // Reset to initial state
+        setCurrentProfileIndex(0);
+        setLikedProfiles([]);
+        setConversations([]);
+        
+        /* Uncomment this section if you want to restore saved state later
         const savedLikedProfiles = localStorage.getItem('likedProfiles');
         const savedConversations = localStorage.getItem('conversations');
         
@@ -82,6 +107,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
         if (savedConversations) {
           setConversations(JSON.parse(savedConversations));
         }
+        */
       } catch (error) {
         console.error('Error loading from localStorage:', error);
       }
